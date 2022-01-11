@@ -7,6 +7,7 @@ from helpers import json_load_comments
 @dataclass
 class Terminal:
     package: str
+    fullname: str
     settings: Path
 
 @dataclass
@@ -30,7 +31,7 @@ class TerminalProfiles:
         for directory in packages_path.iterdir():
             for package in self.PACKAGES:
                 if directory.name.startswith(f"{package}_"):
-                    yield Terminal(package, directory / "LocalState" / "settings.json")
+                    yield Terminal(package, directory.name, directory / "LocalState" / "settings.json")
 
     def find_profiles(self):
         for terminal in self.find_installation():
