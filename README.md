@@ -1,8 +1,9 @@
-Windowss temirnal profiles launcher
+# Windowss temirnal profiles launcher
 
+This plugin is based on Microsoft's powerToys's runner:
 https://github.com/microsoft/PowerToys/tree/main/src/modules/launcher/Plugins/Microsoft.PowerToys.Run.Plugin.WindowsTerminal
 
-
-ctypes.windll.shell32.ShellExecuteW(None, "runas", "shell:appsfolder\\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App", '--window 0 nt --profile "paradox-pi"', None, 1)
-
-ctypes.windll.shell32.ShellExecuteW(None, "open", "shell:appsfolder\\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App", '--window 0 nt --profile "paradox-pi"', None, 1)
+## Features:
+* Support both official released version and preview version of windows terminal.
+* Default action (on enter) open new tab in the first opened window.
+* Context menu allows open as admin, and open in new window.

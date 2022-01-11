@@ -39,7 +39,7 @@ class TerminalPlugin(FlowLauncher):
 
     def context_menu(self, args):
         profile_name, terminal_package = args
-        
+
         results = Results()
         results.add_item(
                     title="Open in new window",
@@ -85,6 +85,10 @@ class TerminalPlugin(FlowLauncher):
             window_arg = "--window 0 nt"
         
         args = f'{window_arg} --profile "{profile_name}"'
+
+        # ctypes.windll.shell32.ShellExecuteW(None, "runas", "shell:appsfolder\\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App", '--window 0 nt --profile "paradox-pi"', None, 1)
+        # ctypes.windll.shell32.ShellExecuteW(None, "open", "shell:appsfolder\\Microsoft.WindowsTerminal_8wekyb3d8bbwe!App", '--window 0 nt --profile "paradox-pi"', None, 1)
+
 
         import ctypes
         ctypes.windll.shell32.ShellExecuteW(None,
