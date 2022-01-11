@@ -18,7 +18,7 @@ class TerminalPlugin(FlowLauncher):
     def query(self, query):
         results = Results()
         for profile in self.profiles:
-            if query in profile.name:
+            if query.lower() in profile.name.lower():
                 results.add_item(
                     title=profile.name,
                     subtitle=profile.terminal.package,
