@@ -42,6 +42,15 @@ class TerminalPlugin(FlowLauncher):
 
         results = Results()
         results.add_item(
+                    title="Open in new tab",
+                    subtitle=profile_name,
+                    icon=self.ICON,
+                    method=self.launch,
+                    parameters=[profile_name, terminal_package, False, False],
+                    context=[],
+                    score=10
+                )
+        results.add_item(
                     title="Open in new window",
                     subtitle=profile_name,
                     icon=self.ICON,

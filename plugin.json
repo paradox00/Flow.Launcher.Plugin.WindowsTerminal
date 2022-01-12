@@ -4,7 +4,7 @@
     "Name": "Windows Terminal profiles",
     "Description": "Windows Terminal profiles launcher",
     "Author": "Aviv B.D.",
-    "Version": "0.0.4",
+    "Version": "0.0.5",
     "Language": "python",
     "Website": "https://github.com/paradox00/Flow.Launcher.Plugin.WindowsTerminal",
     "IcoPath": "Images\\app.png",
