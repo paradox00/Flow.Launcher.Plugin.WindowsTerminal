@@ -29,11 +29,11 @@ class TerminalPlugin(FlowLauncher):
                     score=10
                 )
 
-        results.add_item(
-            title="Reload profiles",
-            method=self.reload,
-            score=0
-        )
+        # results.add_item(
+        #     title="Reload profiles",
+        #     method=self.reload,
+        #     score=0
+        # )
 
         return results.results
 
