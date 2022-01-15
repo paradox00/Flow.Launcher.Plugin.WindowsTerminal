@@ -1,0 +1,11 @@
+body:
+  - type: dropdown
+    attributes:
+      name: default_action
+      label: 'Default Action'
+      defaultValue: 'New Tab'
+      options:
+        - 'New Tab'
+        - 'New Window'
+        - 'Elevated New Tab'
+        - 'Elevated New Window'
