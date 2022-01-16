@@ -16,6 +16,7 @@ class TerminalProfile:
     guid: str
     hidden: bool
     terminal: Terminal
+    info: str
 
 class TerminalProfiles:
     PACKAGES = [
@@ -43,9 +44,12 @@ class TerminalProfiles:
                 yield self.parse_profile(profile, terminal)
 
     def parse_profile(self, profile: Dict, terminal: Terminal) -> TerminalProfile:
+        source = profile.get('source')
+        info = profile.get('commandline', source)
         return TerminalProfile(
             name = profile.get("name", ""),
             guid = profile.get("guid", ""),
             hidden = profile.get("hidden", "false") != "false",
-            terminal = terminal
+            terminal = terminal,
+            info = info
         )

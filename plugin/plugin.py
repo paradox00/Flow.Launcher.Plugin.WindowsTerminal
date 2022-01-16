@@ -43,9 +43,10 @@ class TerminalPlugin(FlowLauncher):
         results = Results()
         for profile in self.profiles:
             if query.lower() in profile.name.lower():
+                subtitle = f"{profile.info} ({profile.terminal.package})"
                 results.add_item(
                     title=profile.name,
-                    subtitle=profile.terminal.package,
+                    subtitle=subtitle,
                     icon=self.ICON,
                     method=self.launch,
                     parameters=[profile.name, profile.terminal.fullname],
