@@ -14,10 +14,12 @@ class TerminalPlugin(FlowLauncher):
     ICON = r"Images/app.png"
     NAME = r"Windows Terminal profiles"
     def __init__(self) -> None:
+        self.default_action = None
+        self.show_hidden = False
+        self.load_settings()
+
         self.tp = TerminalProfiles()
         self.profiles = list(self.tp.find_profiles())
-        self.default_action = None
-        self.load_settings()
 
         super().__init__()
     
@@ -36,12 +38,15 @@ class TerminalPlugin(FlowLauncher):
                 settings = json.load(settings_file)
 
                 self.default_action = settings.get('default_action', None)
+                self.show_hidden = settings.get('show_hidden', self.show_hidden)
         except FileNotFoundError:
             pass
 
     def query(self, query):
         results = Results()
         for profile in self.profiles:
+            if not self.show_hidden and profile.hidden:
+                continue
             if query.lower() in profile.name.lower():
                 subtitle = f"{profile.info} ({profile.terminal.package})"
                 results.add_item(

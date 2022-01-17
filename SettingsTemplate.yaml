@@ -1,4 +1,10 @@
 body:
+  - type: checkbox
+    attributes:
+      name: show_hidden
+      label: 'Show hidden profiles'
+      defaultValue: false
+      description: 'Show hidden profiles in auto complete list'
   - type: dropdown
     attributes:
       name: default_action
