@@ -1,6 +1,6 @@
-# Windowss temirnal profiles launcher
+# Windows terminal profiles launcher
 
-This plugin is based on Microsoft's powerToys's runner:
+This plugin is based on Microsoft's powerToys' runner:
 https://github.com/microsoft/PowerToys/tree/main/src/modules/launcher/Plugins/Microsoft.PowerToys.Run.Plugin.WindowsTerminal
 
 ## Features:
