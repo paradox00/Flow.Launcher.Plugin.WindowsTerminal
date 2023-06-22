@@ -1,11 +1,14 @@
 import os
 import json
+import logging
 from pathlib import Path
 from flowlauncher import FlowLauncher
 from flowlauncher import FlowLauncherAPI
 
 from helpers import Results
 from terminal_profiles import TerminalProfiles, Terminal, TerminalProfile
+
+logger = logging.getLogger(__name__)
 
 PLUGIN_MANIFEST = "plugin.json"
 LOCALAPPDATA = os.getenv('LOCALAPPDATA')
@@ -35,12 +38,13 @@ class TerminalPlugin(FlowLauncher):
         settings_path = self.get_settings_path()
         try: 
             with open(settings_path, "r") as settings_file:
+                logger.info("trying to load settings from %s", settings_file)
                 settings = json.load(settings_file)
 
                 self.default_action = settings.get('default_action', None)
                 self.show_hidden = settings.get('show_hidden', self.show_hidden)
-        except FileNotFoundError:
-            pass
+        except (FileNotFoundError, json.decoder.JSONDecodeError):
+            logger.exception("failed to read and parse settings from %s", settings_file)
 
     def query(self, query):
         results = Results()
