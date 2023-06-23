@@ -49,7 +49,7 @@ class TerminalProfiles:
         return TerminalProfile(
             name = profile.get("name", ""),
             guid = profile.get("guid", ""),
-            hidden = profile.get("hidden", "False").lower().strip() == "true",
+            hidden = profile.get("hidden", False),
             terminal = terminal,
             info = info
         )
